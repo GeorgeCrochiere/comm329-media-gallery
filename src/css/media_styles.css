@@ -1,0 +1,240 @@
+:root {
+    /*  Color Variables  */
+    --light-green: #00B78B;
+    --background: #BCBFBF;
+    --base-gray: #525252;
+    --icon-white: #D9D9D9;
+    --subtitle-gray: #D4D4D4;
+    --title-white: #FFFFFF;
+    --icon-black: #000000;
+    --icon-back-transparent: rgba(82, 82, 82, 0.9);
+    --link-hover: #00ffc3;
+    /*  Padding  */
+    --tag-padding: 0.5rem 1rem;
+    --base-padding: 0.25rem 2rem;
+    --title-radius: 0px 3rem 0px 0px;
+    /*  Borders and Sizing */
+    --icon-border: 0.25rem solid var(--icon-white);
+    --default-border: 0.5rem solid var(--link-hover);
+    --base-width: 60rem;
+    --base-height: calc(var(--base-width) / 16 * 9);
+    /*  Animation Variables - See what is common across the board and apply them here  */
+    --hover-all: all .5s ease-in-out;
+    --hover-link-anim: all 0.3s ease-in-out;
+}
+
+/*  General Background  */
+body {
+    background-color: var(--background);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+article.media {
+    transition: var(--hover-all);
+    height: var(--base-height);
+    width: var(--base-width);
+    transition: transform 0.45s ease-in-out;
+    overflow: hidden;
+}
+
+/*  Front  */
+section.media-image {
+    position: relative;
+    background-color: var(--title-white);
+}
+
+section.media-image>img {
+    min-width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+section.media-image>h1 {
+    position: absolute;
+    z-index: 5;
+    background-color: var(--icon-back-transparent);
+    padding: 1.5rem;
+    padding-bottom: 2rem;
+    margin: 0px;
+    border-radius: var(--title-radius);
+    bottom: 0%;
+    color: var(--title-white);
+    transition: all 0.45s ease-in-out;
+}
+
+/*  Back  */
+section.media-src {
+    background-color: var(--light-green);
+}
+
+section.media-src>ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+section.media-desc {
+    background-color: var(--base-gray);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+section.media-desc>div>h1 {
+    color: var(--title-white);
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+section.media-desc>div>hr {
+    color: var(--light-green);
+    margin: 0px;
+    height: fit-content;
+}
+
+section.media-desc>div>p {
+    color: var(--subtitle-gray);
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+section.media-desc>div.icon-footer {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+}
+
+section.media-desc>div.icon-footer>div.end-footer {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 1rem;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+}
+
+i {
+    user-select: none;
+}
+
+button {
+    text-decoration: none;
+    background: none;
+    border: none;
+    color: inherit;
+    transition: var(--hover-link-anim);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul.noncode-icons>li {
+    display: inline;
+    color: var(--light-green);
+}
+
+ul.code-langs {
+    padding-left: 1rem;
+}
+
+ul.code-langs>li {
+    display: inline;
+    border: var(--icon-border);
+    padding: var(--tag-padding);
+    border-radius: 1rem;
+    color: var(--icon-white);
+}
+
+span.date {
+    color: var(--light-green);
+    height: fit-content;
+    padding-left: 2rem;
+}
+
+button:hover {
+    color: var(--link-hover);
+    cursor: pointer;
+}
+
+section.media-src>ul li:not(:last-child)>button>i:hover {
+    color: var(--link-hover);
+    border-color: var(--link-hover);
+    background-color: var(--base-gray);
+    font-weight: bolder;
+}
+
+section.media-src>ul li:last-child {
+    color: var(--icon-white);
+}
+
+section.media-src>ul li:not(:last-child)>button>i {
+    color: var(--icon-white);
+    padding: 2.5rem 2rem 2rem 2rem;
+    border-radius: 1rem;
+    border: var(--icon-border);
+}
+
+/*  Icon Sizes and changes  */
+button>i.material-symbols-outlined.github {
+    font-size: 2.4rem;
+    transition: all 0.5s ease-in-out;
+}
+
+button:hover i.material-symbols-outlined.github {
+    font-size: 4rem;
+}
+
+/*  Flip Card Effect Styling  */
+article.media {
+    perspective: calc(var(--base-width) * 10);
+}
+
+div.media-data {
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+div.media-front,
+div.media-back {
+    position: absolute;
+    height: var(--base-height);
+    width: var(--base-width);
+    backface-visibility: hidden;
+    overflow: hidden;
+    border: var(--default-border);
+    border-radius: 2rem;
+}
+
+div.media-back {
+    transform: rotateY(180deg);
+    display: grid;
+    grid-template:
+        "main side" var(--base-height) / calc(var(--base-width) * 3 / 4) calc(var(--base-width) / 4);
+}
+
+section.media-desc {
+    grid-area: main;
+}
+
+section.media-src {
+    grid-area: side;
+}
+
+article.media:hover div.media-data {
+    transform: rotateY(180deg);
+}
+
+article.media:hover section.media-image>h1 {
+    height: 0px;
+    padding: 0px;
+    margin: 0px;
+}
