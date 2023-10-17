@@ -23,14 +23,7 @@
     --hover-link-anim: all 0.3s ease-in-out;
 }
 
-/*  General Background  */
-body {
-    background-color: var(--background);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+/*  General Background - Removed  */
 
 article.media {
     transition: var(--hover-all);
