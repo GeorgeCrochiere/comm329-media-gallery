@@ -1,0 +1,122 @@
+:root {
+    --header-background-color: #00B78B;
+    --button-background-color: rgba(150, 150, 150, 0.5);
+    --button-background-hover: rgba(130, 130, 130, 0.8);
+    --base-gray: #525252;
+    --link-hover: #00ffc3;
+    --button-color: #eaeaea;
+    --hover-link-anim: all 0.3s ease-in-out;
+    --button-padding: 0px 1rem 0px 1rem;
+    --border-style: 4px solid var(--link-hover);
+}
+
+body {
+    height: 100vh;
+}
+
+/*-- NavBar --*/
+header {
+    display: grid;
+    grid-template:
+        "logo nulled navbar" max-content / max-content 1fr max-content;
+    background-color: var(--header-background-color);
+    border-bottom: var(--border-style);
+}
+
+header>h1 {
+    grid-area: logo;
+    height: max-content;
+    width: max-content;
+    padding-left: 2rem;
+    justify-content: center;
+    align-items: center;
+    color: var(--base-gray);
+}
+
+header>ul {
+    grid-area: navbar;
+    display: flex;
+    margin-right: 1rem;
+    justify-content: center;
+    align-items: center;
+    color: var(--base-gray);
+}
+
+header>ul>li {
+    padding: 1rem;
+}
+
+/*-- Image Gallery --*/
+section.images {
+    position: relative;
+    width: 100%;
+    height: 60%;
+    overflow: hidden;
+}
+
+section.images>img {
+    display: none;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+section.images>img.shown-img {
+    display: inline;
+}
+
+section.images>button {
+    position: absolute;
+    font-size: 10rem;
+    line-height: 6rem;
+    text-align: center;
+    height: 100%;
+    padding: var(--button-padding);
+    background-color: var(--button-background-color);
+    color: var(--button-color);
+    transition: var(--hover-link-anim);
+}
+
+section.images>button:hover {
+    color: var(--link-hover);
+    background-color: var(--button-background-hover);
+}
+
+button.left {
+    left: 0px;
+}
+
+button.right {
+    right: 0px;
+}
+
+section.images>form {
+    position: absolute;
+    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1rem;
+}
+
+section.images>form>input {
+    accent-color: var(--header-background-color);
+}
+
+/*-- Media Card Gallery --*/
+section.gallery {
+    display: grid;
+}
+
+/*-- Footer --*/
+footer {
+    background-color: var(--base-gray);
+    color: var(--header-background-color);
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    border-top: var(--border-style);
+}
+
+footer>h3 {
+    font-weight: normal;
+    margin-left: 2rem;
+}
