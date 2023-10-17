@@ -104,6 +104,7 @@ section.images>form>input {
 /*-- Media Card Gallery --*/
 section.gallery {
     display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 /*-- Footer --*/
