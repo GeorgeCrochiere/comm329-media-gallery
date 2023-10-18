@@ -15,7 +15,7 @@
     /*  Borders and Sizing */
     --icon-border: calc(var(--base-width) / 240) solid var(--icon-white);
     --default-border: calc(var(--base-width) / 120) solid var(--link-hover);
-    --base-width: 40rem;
+    --base-width: 45rem;
     --base-height: calc(var(--base-width) / 16 * 9);
     /*  Animation Variables - See what is common across the board and apply them here  */
     --hover-all: all .5s ease-in-out;
@@ -40,21 +40,27 @@ section.media-image {
     background-color: var(--title-white);
 }
 
-section.media-image>img {
+section.media-image>section>img {
     min-width: 100%;
     min-height: 100%;
     overflow: hidden;
 }
 
+section.media-image>section {
+    height: var(--base-height);
+    width: var(--base-width);
+    overflow: hidden;
+}
+
 section.media-image>h1 {
     position: absolute;
-    z-index: 5;
+    z-index: 6;
     background-color: var(--icon-back-transparent);
     padding: calc(var(--base-width) / 40);
     padding-bottom: calc(var(--base-width) / 30);
     margin: 0px;
     border-radius: var(--title-radius);
-    bottom: 0%;
+    bottom: 0px;
     color: var(--title-white);
     transition: all 0.45s ease-in-out;
 }

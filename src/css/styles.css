@@ -5,6 +5,7 @@
     --base-gray: #525252;
     --link-hover: #00ffc3;
     --button-color: #eaeaea;
+    --media-background: #a7a7a7;
     --hover-link-anim: all 0.3s ease-in-out;
     --button-padding: 0px 1rem 0px 1rem;
     --border-style: 4px solid var(--link-hover);
@@ -104,7 +105,12 @@ section.images>form>input {
 /*-- Media Card Gallery --*/
 section.gallery {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(45rem, 1fr));
+    row-gap: 4px;
+    justify-items: center;
+    background-image: linear-gradient(to bottom right, var(--media-background), var(--base-gray));
+    padding: 1rem 0px;
+    border-top: var(--border-style);
 }
 
 /*-- Footer --*/
