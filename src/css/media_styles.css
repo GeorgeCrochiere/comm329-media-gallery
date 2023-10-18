@@ -10,17 +10,18 @@
     --icon-back-transparent: rgba(82, 82, 82, 0.9);
     --link-hover: #00ffc3;
     /*  Padding  */
-    --tag-padding: 0.5rem 1rem;
-    --base-padding: 0.25rem 2rem;
-    --title-radius: 0px 3rem 0px 0px;
+    --tag-padding: calc(var(--base-width) / 120) calc(var(--base-width) / 60);
+    --title-radius: 0px calc(var(--base-width) / 20) 0px 0px;
     /*  Borders and Sizing */
-    --icon-border: 0.25rem solid var(--icon-white);
-    --default-border: 0.5rem solid var(--link-hover);
-    --base-width: 60rem;
+    --icon-border: calc(var(--base-width) / 240) solid var(--icon-white);
+    --default-border: calc(var(--base-width) / 120) solid var(--link-hover);
+    --base-width: 40rem;
     --base-height: calc(var(--base-width) / 16 * 9);
     /*  Animation Variables - See what is common across the board and apply them here  */
     --hover-all: all .5s ease-in-out;
     --hover-link-anim: all 0.3s ease-in-out;
+    /* Rem Calculations to make it easier to have data based on one value */
+
 }
 
 /*  General Background - Removed  */
@@ -49,8 +50,8 @@ section.media-image>h1 {
     position: absolute;
     z-index: 5;
     background-color: var(--icon-back-transparent);
-    padding: 1.5rem;
-    padding-bottom: 2rem;
+    padding: calc(var(--base-width) / 40);
+    padding-bottom: calc(var(--base-width) / 30);
     margin: 0px;
     border-radius: var(--title-radius);
     bottom: 0%;
@@ -80,8 +81,7 @@ section.media-desc {
 
 section.media-desc>div>h1 {
     color: var(--title-white);
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin: calc(var(--base-width) / 30) calc(var(--base-width) / 60);
 }
 
 section.media-desc>div>hr {
@@ -92,20 +92,22 @@ section.media-desc>div>hr {
 
 section.media-desc>div>p {
     color: var(--subtitle-gray);
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: calc(var(--base-width) / 60);
+    margin-right: calc(var(--base-width) / 60);
+    font-size: calc(var(--base-width) / 45);
 }
 
 section.media-desc>div.icon-footer {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 1.5rem;
+    padding-bottom: calc(var(--base-width) / 40);
 }
 
 section.media-desc>div.icon-footer>div.end-footer {
     display: flex;
     justify-content: space-between;
-    padding-right: 1rem;
+    padding-right: calc(var(--base-width) / 60);
+    margin-bottom: calc(var(--base-width) / 50);
 }
 
 h1 {
@@ -133,24 +135,26 @@ ul {
 ul.noncode-icons>li {
     display: inline;
     color: var(--light-green);
+    font-size: calc(var(--base-width) / 45);
 }
 
 ul.code-langs {
-    padding-left: 1rem;
+    padding-left: calc(var(--base-width) / 60);
 }
 
 ul.code-langs>li {
     display: inline;
     border: var(--icon-border);
     padding: var(--tag-padding);
-    border-radius: 1rem;
+    border-radius: calc(var(--base-width) / 60);
     color: var(--icon-white);
+    font-size: calc(var(--base-width) / 45);
 }
 
 span.date {
     color: var(--light-green);
     height: fit-content;
-    padding-left: 2rem;
+    padding-left: calc(var(--base-width) / 30);
 }
 
 button:hover {
@@ -171,19 +175,23 @@ section.media-src>ul li:last-child {
 
 section.media-src>ul li:not(:last-child)>button>i {
     color: var(--icon-white);
-    padding: 2.5rem 2rem 2rem 2rem;
-    border-radius: 1rem;
+    padding: calc(var(--base-width) / 24) repeat(3, calc(var(--base-width) / 30));
+    border-radius: calc(var(--base-width) / 60);
     border: var(--icon-border);
 }
 
 /*  Icon Sizes and changes  */
 button>i.material-symbols-outlined.github {
-    font-size: 2.4rem;
+    font-size: calc(var(--base-width) / 25);
     transition: all 0.5s ease-in-out;
 }
 
+button>i.material-symbols-outlined {
+    font-size: calc(var(--base-width) / 25);
+}
+
 button:hover i.material-symbols-outlined.github {
-    font-size: 4rem;
+    font-size: calc(var(--base-width) / 15);
 }
 
 /*  Flip Card Effect Styling  */
@@ -204,7 +212,8 @@ div.media-back {
     backface-visibility: hidden;
     overflow: hidden;
     border: var(--default-border);
-    border-radius: 2rem;
+    border-radius: calc(var(--base-width) / 30);
+    ;
 }
 
 div.media-back {
