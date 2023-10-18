@@ -181,7 +181,7 @@ section.media-src>ul li:last-child {
 
 section.media-src>ul li:not(:last-child)>button>i {
     color: var(--icon-white);
-    padding: calc(var(--base-width) / 24) repeat(3, calc(var(--base-width) / 30));
+    padding: calc(var(--base-width) / 24);
     border-radius: calc(var(--base-width) / 60);
     border: var(--icon-border);
 }
