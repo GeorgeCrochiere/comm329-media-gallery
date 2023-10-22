@@ -1,5 +1,5 @@
 :root {
-    --header-background-color: #00B78B;
+    --header-background-color: #58e7c6;
     --button-background-color: rgba(150, 150, 150, 0.5);
     --button-background-hover: rgba(130, 130, 130, 0.8);
     --base-gray: #525252;
@@ -19,19 +19,39 @@ body {
 header {
     display: grid;
     grid-template:
-        "logo nulled navbar" max-content / max-content 1fr max-content;
+        "logo nulled navbar" max-content / max-content 1fr min-content;
     background-color: var(--header-background-color);
     border-bottom: var(--border-style);
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s all ease-in-out;
 }
 
-header>h1 {
-    grid-area: logo;
-    height: max-content;
-    width: max-content;
-    padding-left: 2rem;
-    justify-content: center;
-    align-items: center;
+a {
+    text-decoration: none;
+    width: min-content;
+    height: min-content;
+}
+
+header>a {
+    grid-area: menu-small;
+    margin-right: 2rem;
+}
+
+header>a>i.material-symbols-outlined {
     color: var(--base-gray);
+    display: none;
+    height: min-content;
+    font-size: 4rem;
+    width: 0px;
+}
+
+header>img {
+    grid-area: logo;
+    height: 12rem;
+    width: auto;
+    padding-left: 2rem;
+    margin: -1rem 0rem;
 }
 
 header>ul {
@@ -41,6 +61,8 @@ header>ul {
     justify-content: center;
     align-items: center;
     color: var(--base-gray);
+    font-family: 'Pixelify Sans', sans-serif;
+    width: min-content;
 }
 
 header>ul>li {
@@ -80,6 +102,7 @@ section.images>div.shown-img {
 
 section.images>div.image-option>h4 {
     position: absolute;
+    font-family: 'Share Tech Mono', monospace;
     padding: 0.75rem 1.25rem;
     bottom: 5%;
     left: 50%;
@@ -90,6 +113,7 @@ section.images>div.image-option>h4 {
     text-align: center;
     border: 2px solid var(--button-color);
     border-radius: 3rem;
+    z-index: 9;
 }
 
 section.images>button {
@@ -144,7 +168,7 @@ section.gallery {
 /*-- Footer --*/
 footer {
     background-color: var(--base-gray);
-    color: var(--header-background-color);
+    color: var(--button-color);
     height: 5rem;
     display: flex;
     align-items: center;
@@ -152,6 +176,28 @@ footer {
 }
 
 footer>h3 {
+    font-size: 1.5rem;
     font-weight: normal;
     margin-left: 2rem;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+/*-- Media Queries --*/
+@media screen and (max-width: 550px) {
+    header>ul {
+        width: 0px;
+        display: none;
+    }
+
+    header>a>i.material-symbols-outlined {
+        min-width: min-content;
+        display: inline;
+    }
+
+    header {
+        grid-template:
+            "logo nulled menu-small" max-content / max-content 1fr min-content;
+    }
+
+
 }

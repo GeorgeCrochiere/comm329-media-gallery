@@ -15,7 +15,7 @@
     /*  Borders and Sizing */
     --icon-border: calc(var(--base-width) / 240) solid var(--icon-white);
     --default-border: calc(var(--base-width) / 120) solid var(--link-hover);
-    --base-width: 45rem;
+    --base-width: 35rem;
     --base-height: calc(var(--base-width) / 16 * 9);
     /*  Animation Variables - See what is common across the board and apply them here  */
     --hover-all: all .5s ease-in-out;
