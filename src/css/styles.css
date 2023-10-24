@@ -4,11 +4,12 @@
     --button-background-hover: rgba(130, 130, 130, 0.8);
     --base-gray: #525252;
     --link-hover: #00ffc3;
+    --dark-link-hover: #004e3c;
     --button-color: #eaeaea;
     --media-background: #a7a7a7;
     --hover-link-anim: all 0.3s ease-in-out;
     --button-padding: 0px 1rem 0px 1rem;
-    --border-style: 4px solid var(--link-hover);
+    --border-style: 4px solid var(--dark-link-hover);
 }
 
 body {
@@ -31,6 +32,13 @@ a {
     text-decoration: none;
     width: min-content;
     height: min-content;
+    transition: 0.2s all ease-in-out;
+    text-shadow: none;
+}
+
+a:hover {
+    color: var(--button-color);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 header>a {
@@ -48,10 +56,9 @@ header>a>i.material-symbols-outlined {
 
 header>img {
     grid-area: logo;
-    height: 12rem;
+    height: 8rem;
     width: auto;
-    padding-left: 2rem;
-    margin: -1rem 0rem;
+    padding-left: 4rem;
 }
 
 header>ul {
@@ -114,6 +121,24 @@ section.images>div.image-option>h4 {
     border: 2px solid var(--button-color);
     border-radius: 3rem;
     z-index: 9;
+}
+
+section.images>div.image-option>h3 {
+    position: absolute;
+    font-family: 'Share Tech Mono', monospace;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--button-color);
+    font-size: 4rem;
+    text-align: center;
+    z-index: 9;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    transition: 0.2s all ease-in-out;
+}
+
+section.images>div.image-option>h3:hover {
+    font-size: 5rem;
 }
 
 section.images>button {
@@ -197,6 +222,10 @@ footer>h3 {
     header {
         grid-template:
             "logo nulled menu-small" max-content / max-content 1fr min-content;
+    }
+
+    section.images>div.image-option>h3 {
+        top: 5%;
     }
 
 
