@@ -5,6 +5,7 @@
     --base-gray: #525252;
     --link-hover: #00ffc3;
     --dark-link-hover: #004e3c;
+    --link-norm-color: #1f2857;
     --button-color: #eaeaea;
     --media-background: #a7a7a7;
     --hover-link-anim: all 0.3s ease-in-out;
@@ -14,10 +15,16 @@
 
 body {
     height: 100vh;
+    display: grid;
+    grid-template:
+        "heading" min-content "slideshow" 50%
+        "gallery" 1fr
+        "footer" min-content / 1fr;
 }
 
 /*-- NavBar --*/
 header {
+    grid-area: heading;
     display: grid;
     grid-template:
         "logo nulled navbar" max-content / max-content 1fr min-content;
@@ -32,8 +39,9 @@ a {
     text-decoration: none;
     width: min-content;
     height: min-content;
-    transition: 0.2s all ease-in-out;
+    color: var(--link-norm-color);
     text-shadow: none;
+    transition: 0.2s all ease-in-out;
 }
 
 a:hover {
@@ -47,11 +55,15 @@ header>a {
 }
 
 header>a>i.material-symbols-outlined {
-    color: var(--base-gray);
+    color: var(--link-norm-color);
     display: none;
     height: min-content;
     font-size: 4rem;
     width: 0px;
+}
+
+header>a>i.material-symbols-outlined:hover {
+    color: var(--button-color);
 }
 
 header>img {
@@ -78,9 +90,10 @@ header>ul>li {
 
 /*-- Image Gallery --*/
 section.images {
+    grid-area: slideshow;
     position: relative;
     width: 100%;
-    height: 50%;
+    height: 100%;
 }
 
 section.images>div.image-option {
@@ -181,6 +194,7 @@ section.images>form>input {
 
 /*-- Media Card Gallery --*/
 section.gallery {
+    grid-area: gallery;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
     row-gap: 0.75rem;
@@ -192,6 +206,7 @@ section.gallery {
 
 /*-- Footer --*/
 footer {
+    grid-area: footer;
     background-color: var(--base-gray);
     color: var(--button-color);
     height: 5rem;
